@@ -1,0 +1,11 @@
+{
+  "name": "aspirantcafe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AspirantCafe recruitment update portal",
+  "scripts": {
+    "start": "node server.js",
+    "set-admin": "node scripts/set-admin.js",
+    "test": "node --test tests/*.test.js"
+  }
+}

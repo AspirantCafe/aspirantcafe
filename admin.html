@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AspirantCafe | Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="admin.js" defer></script>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span>VD</span> AspirantCafe
+    </a>
+
+    <nav>
+      <a href="index.html">View website</a>
+      <button class="nav-button" id="logoutButton" hidden>Logout</button>
+    </nav>
+  </header>
+
+  <main class="admin-page">
+
+    <!-- LOGIN -->
+    <section id="loginView" class="admin-card narrow-card">
+      <p class="eyebrow">ADMIN AREA</p>
+
+      <h1>Sign in</h1>
+
+      <p class="admin-intro">
+        Use your server-configured administrator account to manage recruitment updates.
+      </p>
+
+      <form id="loginForm" class="form-grid">
+
+        <label>
+          Admin ID
+          <input
+            name="username"
+            autocomplete="username"
+            required
+          >
+        </label>
+
+        <label>
+          Password
+          <input
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          >
+        </label>
+
+        <button class="save-job" type="submit">
+          Sign in
+        </button>
+
+        <p>
+          <a href="reset-request.html">Forgot Password?</a>
+        </p>
+
+        <p
+          id="loginMessage"
+          class="form-message"
+          aria-live="polite"
+        ></p>
+
+      </form>
+    </section>
+
+
+    <!-- ADMIN PANEL -->
+    <section id="adminView" hidden>
+
+      <div class="admin-top">
+        <div>
+          <p class="eyebrow">ADMIN AREA</p>
+          <h1>Manage Recruitment</h1>
+          <p class="admin-intro">
+            Add, edit and manage vacancies, admit cards, results and other recruitment updates.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- ADD / EDIT INFORMATION -->
+      <section class="admin-card" id="add-job">
+
+        <div class="admin-heading">
+          <div>
+            <p class="section-label">POST MANAGEMENT</p>
+            <h2 id="formTitle">Add information</h2>
+          </div>
+
+          <button
+            class="add-extra"
+            id="cancelEdit"
+            type="button"
+            hidden
+          >
+            Cancel edit
+          </button>
+        </div>
+
+
+        <form id="jobForm">
+
+          <!-- BASIC INFORMATION -->
+          <div class="form-section">
+
+            <div class="form-section-title">
+              <span>01</span>
+              Basic Information
+            </div>
+
+            <div class="form-grid">
+
+              <label>
+                Post type
+                <select name="post_type" id="postType" required>
+                  <option value="vacancy">Vacancy</option>
+                  <option value="admit-card">Admit Card</option>
+                  <option value="result">Result</option>
+                  <option value="answer-key">Answer Key</option>
+                  <option value="other">Admission</option>
+                </select>
+              </label>
+              <label>
+  <label>
+  Category
+  <select name="category" id="category" required>
+    <option value="">Select Category</option>
+    <option value="ssc">SSC</option>
+    <option value="railway">Railway</option>
+    <option value="banking">Banking</option>
+    <option value="upsc">UPSC</option>
+    <option value="state-govt">State Govt</option>
+    <option value="teaching">Teaching</option>
+    <option value="defence">Defence</option>
+    <option value="police">Police</option>
+    <option value="other">Other</option>
+  </select>
+</label>
+
+              <label>
+                Organization
+                <textarea
+  name="organization"
+  required
+  maxlength="200"
+  rows="2"
+  placeholder="e.g. State Public Service Commission"
+></textarea>
+              </label>
+
+              <label class="full-field">
+                Post / Vacancy / Exam Name
+                <textarea
+  name="title"
+  required
+  maxlength="250"
+  rows="2"
+  placeholder="e.g. Junior Accountant Recruitment 2026"
+></textarea>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- VACANCY DETAILS -->
+          <div
+            class="form-section"
+            id="vacancyFields"
+          >
+
+            <div class="form-section-title">
+              <span>02</span>
+              Recruitment Details
+            </div>
+
+            <div class="form-grid">
+
+              <label>
+                <span id="totalVacanciesLabel">Total Vacancies</span>
+                <textarea
+  name="total_vacancies"
+  maxlength="500"
+  rows="2"
+  placeholder="e.g. 120 Posts"
+></textarea>
+              </label>
+
+              <label>
+                Educational Qualification
+                <textarea
+  name="qualification"
+  maxlength="500"
+  rows="2"
+  placeholder="e.g. Graduate from a recognized university"
+></textarea>
+              </label>
+
+              <label>
+                Age Limit
+                <textarea
+  name="age_limit"
+  maxlength="500"
+  rows="2"
+  placeholder="e.g. 18–32 Years"
+></textarea>
+              </label>
+
+              <label>
+                Application Fee
+                <textarea
+  name="application_fee"
+  maxlength="500"
+  rows="2"
+  placeholder="e.g. ₹500 / ₹250 for SC/ST"
+></textarea>
+              </label>
+
+              <label>
+                Application Start Date
+                <input
+  name="application_start_date"
+  type="text"
+  maxlength="100"
+  placeholder="e.g. 15 Sep 2026 / To Be Announced"
+>
+              </label>
+
+              <label>
+                Last Date
+                <input
+  name="last_date"
+  type="text"
+  maxlength="100"
+  placeholder="e.g. 30 Sep 2026 / To Be Announced"
+>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- IMPORTANT LINKS / PDF -->
+          <div class="form-section">
+
+            <div class="form-section-title">
+              <span>03</span>
+              Important Links & Documents
+            </div>
+
+            <div class="form-grid">
+
+              <label id="officialLinkLabel">
+                Official / Important Link
+                <input
+                  name="content_link"
+                  type="url"
+                  placeholder="https://..."
+                >
+              </label>
+
+              <label id="eventDateLabel">
+                Exam / Result Date
+                <input
+  name="event_date"
+  type="text"
+  maxlength="100"
+  placeholder="e.g. 20 Oct 2026 / To Be Announced"
+>
+              </label>
+
+              <label class="full-field vacancy-only-upload">
+                Notification PDF
+                <input
+                  name="notification_file"
+                  type="file"
+                  accept="application/pdf"
+                >
+                <small>
+                  PDF only, maximum 5 MB.
+                </small>
+              </label>
+
+              <label class="full-field">
+                Apply Online Link
+                <input
+                  name="apply_link"
+                  type="url"
+                  placeholder="https://..."
+                >
+              </label>
+
+            </div>
+
+            <p
+              class="field-note"
+              id="typeHelp"
+            ></p>
+
+          </div>
+
+
+          <!-- DETAILED INFORMATION -->
+<div class="form-section">
+  <div class="form-section-title">
+    <span>04</span>
+    Detailed Information
+  </div>
+
+  <div class="detail-fields">
+
+    <label>
+      Short Introduction
+      <textarea
+        name="description"
+        maxlength="5000"
+        rows="6"
+        placeholder="Write a short introduction about this recruitment..."
+      ></textarea>
+    </label>
+
+    <label>
+      Selection Process
+      <textarea
+        name="selection_process"
+        maxlength="3000"
+        rows="5"
+        placeholder="Example: Written Exam → Skill Test → Document Verification → Medical Examination"
+      ></textarea>
+    </label>
+
+    <label>
+      How to Apply
+      <textarea
+        name="how_to_apply"
+        maxlength="5000"
+        rows="6"
+        placeholder="Write step-by-step instructions for applying online..."
+      ></textarea>
+    </label>
+    
+    <label>
+  Important Note / Disclaimer
+  <textarea
+    name="important_note"
+    maxlength="3000"
+    rows="5"
+    placeholder="Example: Candidates are advised to read the official notification carefully before applying..."
+  ></textarea>
+</label>
+
+    <div class="admin-info-note">
+      <strong>Tip:</strong>
+      Keep the information clear and simple. These details will be displayed
+      on the public recruitment details page.
+    </div>
+
+  </div>
+</div>
+
+
+          <!-- SAVE -->
+          <div class="form-submit-area">
+
+            <button
+              class="save-job"
+              type="submit"
+            >
+              Publish information
+            </button>
+
+            <p
+              id="formMessage"
+              class="form-message"
+              aria-live="polite"
+            ></p>
+
+          </div>
+
+        </form>
+
+      </section>
+
+
+      <!-- YOUR POSTS -->
+      <section class="admin-card">
+
+        <div class="admin-heading">
+
+          <div>
+            <p class="section-label">CONTENT MANAGEMENT</p>
+
+            <h2>Your posts</h2>
+
+            <p>
+              Search or filter posts before editing or removing them.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="admin-tools">
+
+          <input
+            id="adminSearch"
+            type="search"
+            placeholder="Search posts..."
+            aria-label="Search posts"
+          >
+
+          <select
+            id="adminFilter"
+            aria-label="Filter posts"
+          >
+            <option value="">All types</option>
+            <option value="vacancy">Vacancy</option>
+            <option value="admit-card">Admit Card</option>
+            <option value="result">Result</option>
+            <option value="answer-key">Answer Key</option>
+            <option value="other">Other</option>
+          </select>
+
+        </div>
+
+
+        <div
+          id="adminJobs"
+          class="admin-jobs"
+        ></div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <span>© 2026 AspirantCafe</span>
+    <span>Administrator access is protected on the server.</span>
+  </footer>
+
+</body>
+</html>
