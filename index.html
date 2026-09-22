@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AspirantCafe | Jobs, Exams, Admit Cards & Results</title>
+  <meta name="description" content="AspirantCafe brings government jobs, admit cards, answer keys, results and recruitment updates together in one place." />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="ac-header">
+    <div class="ac-header-top">
+      <a class="ac-brand" href="#home" aria-label="AspirantCafe Home">
+        <span class="ac-cap" aria-hidden="true"><i></i><b></b></span>
+        <span class="ac-brand-text"><strong>Aspirant<span>Cafe</span></strong><small>Your Exam Journey, Our Support</small></span>
+      </a>
+      <div class="ac-header-tools">
+        <div class="ac-motto">Stay Informed<br><em>Stay Ahead</em></div>
+        <button class="ac-icon-btn" type="button" aria-label="Search" onclick="document.querySelector('#search')?.focus()">⌕</button>
+        <a class="ac-login" href="#login">Login</a>
+        <a class="ac-admin" href="admin.html">Admin</a>
+      </div>
+    </div>
+    <nav class="ac-nav" aria-label="Main navigation">
+      <a class="active" href="#home">⌂ <span>Home</span></a>
+      <a href="#current">Current Vacancies</a>
+      <a href="#upcoming">Admission</a>
+      <a href="#admit-card">Admit Card</a>
+      <a href="#answer-key">Answer Key</a>
+      <a href="#result">Results</a>
+      <a href="#guide">Syllabus</a>
+      <a href="#guide">News</a>
+      <a class="saved-link" href="#saved">♡ <span>Saved</span></a>
+      <button class="theme-btn" type="button" aria-label="Theme">☼</button>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="ac-hero">
+      <div class="ac-hero-bg"></div>
+      <div class="ac-hero-content">
+        <div class="ac-hero-title-row">
+          <h1>Aspirant<span>Cafe</span></h1>
+          <span class="sparkle">✦</span>
+        </div>
+        <p class="ac-hero-sub">Latest Government Jobs, Admit Cards, Results and More — All in One Place</p>
+        <div class="ac-trust"><span>● Trusted Updates</span><span>● Fast &amp; Easy Access</span><span>● Mobile Friendly</span><span>● Stay Ahead in Your Journey</span></div>
+        <div class="ac-search-wrap">
+          <span>⌕</span>
+          <input id="search" type="search" placeholder="Search for jobs, exams, admit cards, results etc..." aria-label="Search vacancies" />
+          <button id="searchButton" type="button">Search</button>
+        </div>
+        <div class="ac-chips" aria-label="Popular categories">
+  <a href="#current" data-category="ssc">SSC</a>
+  <a href="#current" data-category="railway">Railway</a>
+  <a href="#current" data-category="banking">Bank</a>
+  <a href="#current" data-category="upsc">UPSC</a>
+  <a href="#current" data-category="state-govt">State Govt</a>
+  <a href="#current" data-category="teaching">Teaching</a>
+  <a href="#current" data-category="defence">Defence</a>
+  <a href="#current" data-category="police">Police</a>
+  <a href="#admit-card">Admit Card</a>
+  <a href="#result">Result</a>
+</div>
+      </div>
+      <div class="ac-hero-note"><strong>Big Dreams<br>Start with<br>Small Steps</strong></div>
+      <div class="ac-study-card"><b>STUDY<br>PLAN</b><span>SUCCESS</span></div>
+    </section>
+
+    <section class="ac-category-strip" aria-label="Quick categories">
+      <a class="ac-category current" href="#current"><span class="cat-icon">▣</span><span><b>Current Vacancies</b><small>Latest job openings</small></span><i>›</i></a>
+      <a class="ac-category upcoming" href="#upcoming"><span class="cat-icon">◷</span><span><b>Admission</b><small>Expected notifications</small></span><i>›</i></a>
+      <a class="ac-category admit" href="#admit-card"><span class="cat-icon">▤</span><span><b>Admit Card</b><small>Download hall tickets</small></span><i>›</i></a>
+      <a class="ac-category answer" href="#answer-key"><span class="cat-icon">⌕</span><span><b>Answer Key</b><small>Check answer keys</small></span><i>›</i></a>
+      <a class="ac-category result" href="#result"><span class="cat-icon">▥</span><span><b>Results</b><small>Latest results</small></span><i>›</i></a>
+    </section>
+
+    <section class="ac-latest-layout" id="current">
+      <div class="ac-latest-main">
+        <div class="ac-section-head"><div><h2>Latest Updates</h2><span></span></div><a href="#current">View All →</a></div>
+        <div class="vacancy-grid ac-current-grid" id="currentGrid"></div>
+        <p class="empty-block" id="currentEmpty" hidden>No current vacancies added yet.</p>
+        <p class="no-results" id="noResults" hidden>No vacancies match your search. Try a different keyword.</p>
+      </div>
+
+      <aside class="ac-sidebar">
+        <div class="ac-side-card stay-updated">
+          <div class="side-title"><span>♟</span><b>Stay Updated</b></div>
+          <p>Get latest updates directly in your inbox</p>
+          <div class="side-subscribe"><input id="sidebarNotificationEmail" type="email" placeholder="Enter your email address" aria-label="Email address"><button id="sidebarSubscribe" type="button">Subscribe</button></div>
+          <small id="sidebarMessage" class="sidebar-message"></small>
+        </div>
+        <div class="ac-side-card quick-links" id="saved">
+          <div class="side-title"><span>↗</span><b>Quick Links</b></div>
+          <a href="#guide">▣ &nbsp; Official Websites <i>›</i></a>
+          <a href="#guide">▣ &nbsp; Exam Calendar <i>›</i></a>
+          <a href="#upcoming">◷ &nbsp; Admission <i>›</i></a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="ac-secondary-grid">
+      <section class="content-section" id="upcoming"><div class="section-heading"><div><p class="eyebrow">PLAN AHEAD</p><h2>Admission</h2></div><p>Expected notifications—start preparing now.</p></div><div class="vacancy-grid" id="upcomingGrid"></div><p class="empty-block" id="upcomingEmpty">No admission information added yet.</p></section>
+      <section class="content-section" id="admit-card"><div class="section-heading"><div><p class="eyebrow">EXAM UPDATES</p><h2>Admit Card</h2></div><p>Download official examination admit cards.</p></div><div class="vacancy-grid" id="admitCardGrid"></div><p class="empty-block" id="admitCardEmpty">No admit cards added yet.</p></section>
+      <section class="content-section" id="answer-key"><div class="section-heading"><div><p class="eyebrow">EXAM UPDATES</p><h2>Answer Key</h2></div><p>Official provisional and final answer keys.</p></div><div class="vacancy-grid" id="answerKeyGrid"></div><p class="empty-block" id="answerKeyEmpty">No answer keys added yet.</p></section>
+      <section class="content-section" id="result"><div class="section-heading"><div><p class="eyebrow">EXAM UPDATES</p><h2>Results</h2></div><p>Official recruitment examination results.</p></div><div class="vacancy-grid" id="resultGrid"></div><p class="empty-block" id="resultEmpty">No results added yet.</p></section>
+    </section>
+
+    <section class="guide" id="guide"><p class="eyebrow">BE READY</p><h2>Prepare smarter with AspirantCafe</h2><div class="guide-grid"><div><span>01</span><h3>Read the notice</h3><p>Check eligibility, vacancies, documents, fees and the final date.</p></div><div><span>02</span><h3>Prepare documents</h3><p>Keep your ID, certificates, résumé and photograph ready.</p></div><div><span>03</span><h3>Apply early</h3><p>Complete the official application well before the deadline.</p></div></div></section>
+  </main>
+
+  <footer><span>AspirantCafe</span><span>Information shown here is for demonstration. Always verify details on the official recruitment website.</span></footer>
+
+  <dialog id="jobModal">
+    <button class="close" aria-label="Close">×</button>
+    <div class="recruitment-header">
+      <div class="detail-brand-row">
+        <a class="detail-brand" href="#home" aria-label="AspirantCafe Home">
+          <span class="ac-cap" aria-hidden="true"><i></i><b></b></span>
+          <span class="detail-brand-name">Aspirant<span>Cafe</span></span>
+        </a>
+        <div class="detail-quote">“Stay Focused. Keep Preparing. Keep Growing.”</div>
+      </div>
+      <p class="eyebrow" id="modalType">VACANCY DETAILS</p><h2 id="modalTitle"></h2><p class="organisation" id="modalOrganisation"></p>
+    </div>
+    <div class="modal-details" id="modalDetails"></div><div id="modalLinks"></div><button type="button" class="modal-bottom-close">Close</button>
+  </dialog>
+
+  <dialog id="notificationDialog" class="notification-dialog">
+    <div class="notification-box"><div class="notification-icon">🔔</div><p class="eyebrow">STAY UPDATED</p><h2>Get new vacancy notifications</h2><p>Sign up with your email and we'll notify you whenever a new vacancy is added to AspirantCafe.</p>
+      <form id="notificationForm" class="notification-form"><label class="sr-only" for="notificationEmail">Email address</label><input id="notificationEmail" type="email" placeholder="Enter your email address" autocomplete="email" required /><div class="notification-actions"><button type="submit" class="notification-signup">Sign Up</button><button type="button" class="notification-later" id="notificationLater">Later</button></div><p id="notificationMessage" class="notification-message" role="status" aria-live="polite"></p></form>
+    </div>
+  </dialog>
+</body>
+</html>
